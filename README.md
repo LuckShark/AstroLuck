@@ -13,8 +13,9 @@ Este teste realiza o processo de login e compra em um site de testes, o Swag Lab
 
 Os comandos estão agrupados e instanciados em um arquivo JSON para evitar hard coding. Isso torna mais fácil a manutenção do código e a reutilização de dados.
 
-Modo de Execução (Run Mode)
-É importante destacar que o modo de execução (Run Mode) é crucial para testes de Cypress em ambientes de pipelines ou processamento. Em ambientes instáveis, garantir que o teste rode de forma estável é fundamental para a integridade dos resultados.
+**Modo de Execução (Run Mode)**
+
+É importante destacar que o modo de execução (Run Mode) é crucial para testes de Cypress em ambientes de pipelines ou processamento. Em ambientes instáveis, garantir que o teste rode de forma estável (e mais de uma vez) é fundamental para a integridade dos resultados.
 
 Nota: O uso de cy.log para impressão de logs é recomendado para fins de debug e rastreamento de problemas durante a execução dos testes.
 
