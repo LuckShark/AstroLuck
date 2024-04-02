@@ -1,16 +1,25 @@
-describe('Teste Técnico Astro - Login e Compras', () => {
-it('Login', () => {
-    cy.visit('https://www.saucedemo.com/');
-    cy.get('[data-test="username"]').type('standard_user');
-    cy.get('[data-test="password"]').type('secret_sauce');
-    cy.get('[data-test="login-button"]').click();
-    cy.url().should('include', '/inventory.html');
-
-    
-    cy.get('[data-test="add-to-cart-sauce-labs-backpack"]')
-    cy.get('[data-test="add-to-cart-sauce-labs-fleece-jacket"]')
-    cy.get('[data-test="shopping-cart-badge"]')
-
-
+// <reference types="cypress" />
+describe("teste", () => {
+    before(() => {
+      cy.visit('https://www.saucedemo.com/');
+      cy.login();
     });
-});
+    it("add to cart", () => {
+      for (let i = 0; i < 3; i++) {
+        cy.get(".btn_primary").eq(i).click();
+      }
+      cy.get(".shopping_cart_link").click();
+      cy.get('[data-test="inventory-item-name"]')
+        .contains("Sauce Labs Backpack")
+        .should("be.visible");
+      cy.get("button#checkout").click();
+      cy.get('[data-test="title"]').should("be.visible");
+      cy.information();
+      cy.get('[data-test="title"]').should("have.text", "Checkout: Overview");
+      cy.get('[data-test="finish"]').click();
+      cy.get('[data-test="complete-header"]').should(
+        "have.text",
+        "Thank you for your order!"
+      );
+    });
+  });
