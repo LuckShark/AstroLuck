@@ -1,7 +1,7 @@
 // <reference types="cypress" />
 describe("teste", () => {
     before(() => {
-      cy.visit('https://www.saucedemo.com/');
+      cy.visit('/');
       cy.login();
     });
     it("add to cart", () => {
